@@ -391,14 +391,14 @@ if __name__ == "__main__":
     parser.add_argument("ts_gwl",type=str,help="the first year of the timeslice or GWL range for the projection (2035,2070,gwl15,gwl20,gwl30,gwl40)")
     args=parser.parse_args()
 
-    basepath="/g/data/wp00/users/mjk563/qaqc_reports_final/QDC-CMIP6"
+    basepath="/g/data/wp00/users/mjk563/qaqc_reports_final/QDC-CMIP6" # CHANGE THIS TO WHERE YOU WANT REPORTS
     source=args.source
     model=args.model
     ssp=args.ssp
     variable=args.variable
     ts_gwl=args.ts_gwl
     print(source,model,ssp,variable,ts_gwl)
-    filepaths=glob.glob(f'/g/data/ia39/australian-climate-service/release/QDC-CMIP6/{source}/{model}/ssp{ssp}/*/day/{variable}/AUS-05i/{ts_gwl}*/v20241104/{variable}_day_*.nc')
+    filepaths=glob.glob(f'/g/data/ia39/australian-climate-service/release/QDC-CMIP6/{source}/{model}/ssp{ssp}/*/day/{variable}/AUS-05i/{ts_gwl}*/v20241104/{variable}_day_*.nc') # CHANGE THIS TO BE CORRECT FOR YOUR DATA
     filepaths.sort()
     for filen in filepaths:
         #target_dir=basepath+'/'+('/'.join(filen.split('/')[7:-1]))
